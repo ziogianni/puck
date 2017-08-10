@@ -127,6 +127,8 @@
     divDisplay.appendChild(checkbox);
     divDisplay.appendChild(label);
     divDisplay.appendChild(qty);
+    divDisplay.appendChild(addup);
+    divDisplay.appendChild(remove);
     divDisplay.appendChild(deleteLink);
 
     var inputEditTodo = document.createElement('input');
