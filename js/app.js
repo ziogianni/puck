@@ -8,7 +8,7 @@
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
-  var db = new PouchDB('todos');
+  var db = new PouchDB('sources');
 
   // Replace with remote instance, this just replicates to another local instance.
   var remoteCouch = 'https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/sources';
