@@ -119,6 +119,7 @@
     var divDisplay = document.createElement('div');
     divDisplay.className = 'view';
     divDisplay.appendChild(checkbox);
+    divDisplay.appendChild(qty);
     divDisplay.appendChild(label);
     divDisplay.appendChild(deleteLink);
 
