@@ -24,7 +24,7 @@
     var todo = {
       _id: new Date().toISOString(),
       title: text,
-      qty: number,
+      qty: text,
       completed: false
     };
     db.put(todo, function callback(err, result) {
