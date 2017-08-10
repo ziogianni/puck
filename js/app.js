@@ -103,10 +103,10 @@
     qty.className = 'qty';
     qty.type = 'text';
     var addup = document.createElement('button');
-    addup.className = 'destroy';
+    addup.className = 'addup';
     addup.addEventListener( 'click', deleteButtonPressed.bind(this, todo));
     var remove = document.createElement('button');
-    remove.className = 'destroy';
+    remove.className = 'remove';
     remove.addEventListener( 'click', deleteButtonPressed.bind(this, todo));
     
     var checkbox = document.createElement('input');
