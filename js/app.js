@@ -65,7 +65,9 @@
   function sync() {
     syncDom.setAttribute('data-sync-state', 'syncing');
     var opts = {live: true};
-    db.sync(remoteCouch);
+    db.sync(remoteCouch, {
+  live: true
+}).on('error', syncError())
     //db.replicate.to(remoteCouch, opts, syncError);
     //db.replicate.from(remoteCouch, opts, syncError);
   }
