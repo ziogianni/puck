@@ -102,6 +102,12 @@
     var qty = document.createElement('input');
     qty.className = 'qty';
     qty.type = 'text';
+    var addup = document.createElement('button');
+    addup.className = 'destroy';
+    addup.addEventListener( 'click', deleteButtonPressed.bind(this, todo));
+    var remove = document.createElement('button');
+    remove.className = 'destroy';
+    remove.addEventListener( 'click', deleteButtonPressed.bind(this, todo));
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
@@ -119,8 +125,8 @@
     var divDisplay = document.createElement('div');
     divDisplay.className = 'view';
     divDisplay.appendChild(checkbox);
-    divDisplay.appendChild(qty);
     divDisplay.appendChild(label);
+    divDisplay.appendChild(qty);
     divDisplay.appendChild(deleteLink);
 
     var inputEditTodo = document.createElement('input');
