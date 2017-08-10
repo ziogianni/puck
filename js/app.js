@@ -11,7 +11,7 @@
   var db = new PouchDB('couchdb');
 
   // Replace with remote instance, this just replicates to another local instance.
-  var remoteCouch = 'https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/couchdb';
+  var remoteCouch = new PouchDB('https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/couchdb');
 
   db.changes({
     since: 'now',
@@ -65,8 +65,9 @@
   function sync() {
     syncDom.setAttribute('data-sync-state', 'syncing');
     var opts = {live: true};
-    db.replicate.to(remoteCouch, opts, syncError);
-    db.replicate.from(remoteCouch, opts, syncError);
+    db.sync(remoteCouch);
+    //db.replicate.to(remoteCouch, opts, syncError);
+    //db.replicate.from(remoteCouch, opts, syncError);
   }
 
   // EDITING STARTS HERE (you dont need to edit anything below this line)
