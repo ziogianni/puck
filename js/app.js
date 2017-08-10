@@ -31,6 +31,12 @@
       }
     });
   }
+  function sync() {
+  syncDom.setAttribute('data-sync-state', 'syncing');
+  var opts = {live: true};
+  db.replicate.to(remoteCouch, opts, syncError);
+  db.replicate.from(remoteCouch, opts, syncError);
+}
 
   // Show the current list of todos by reading them from the database
   function showTodos() {
