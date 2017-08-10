@@ -4,6 +4,7 @@
 
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
+  var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
@@ -19,15 +20,16 @@
   }).on('change', showTodos);
 
   // We have to create a new todo document and enter it in the database
-  function addTodo(text) {
+  function addTodo(text,qty) {
     var todo = {
       _id: new Date().toISOString(),
       title: text,
+      qty: number,
       completed: false
     };
     db.put(todo, function callback(err, result) {
       if (!err) {
-        console.log('Successfully posted a todo!');
+        console.log('Successfully posted!');
       }
     });
   }
@@ -154,8 +156,9 @@
 
   function newTodoKeyPressHandler( event ) {
     if (event.keyCode === ENTER_KEY) {
-      addTodo(newTodoDom.value);
+      addTodo(newTodoDom.value,newqty);
       newTodoDom.value = '';
+      newqty = 0;
     }
   }
 
