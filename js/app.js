@@ -11,7 +11,7 @@
   var db = new PouchDB('couchdb');
 
   // Replace with remote instance, this just replicates to another local instance.
-  var remoteCouch = 'https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/CouchDB Hosting 1.6.0';
+  var remoteCouch = 'https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/';
 
   db.changes({
     since: 'now',
