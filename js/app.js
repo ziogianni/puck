@@ -13,6 +13,7 @@
   // Replace with remote instance, this just replicates to another local instance.
   var remoteCouch = 'https://admin:f709a4963dd5@couchdb-9c5f9d.smileupps.com/sources';
 
+  
   db.changes({
     since: 'now',
     live: true
