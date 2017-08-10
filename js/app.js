@@ -67,7 +67,7 @@
     var opts = {live: true};
     db.sync(remoteCouch, {
   live: true
-}).on('error', syncError())
+}).on('error', function(err){console.log(JSON.stringify(err));});
     //db.replicate.to(remoteCouch, opts, syncError);
     //db.replicate.from(remoteCouch, opts, syncError);
   }
