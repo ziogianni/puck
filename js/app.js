@@ -144,7 +144,8 @@
     li.id = 'li_' + todo._id;
     li.appendChild(divDisplay);
     li.appendChild(inputEditTodo);
-
+    li.appendChild(inputEditQty);
+    
     if (todo.completed) {
       li.className += 'complete';
       checkbox.checked = true;
