@@ -134,10 +134,18 @@
     inputEditTodo.addEventListener('keypress', todoKeyPressed.bind(this, todo));
     inputEditTodo.addEventListener('blur', todoBlurred.bind(this, todo));
 
+    var inputEditQty = document.createElement('input');
+    inputEditQty.id = 'input_' + todo._id;
+    inputEditQty.className = 'edit';
+    inputEditQty.value = todo.qty;
+    inputEditQty.addEventListener('keypress', todoKeyPressed.bind(this, todo));
+    inputEditQty.addEventListener('blur', todoBlurred.bind(this, todo));
+    
     var li = document.createElement('li');
     li.id = 'li_' + todo._id;
     li.appendChild(divDisplay);
     li.appendChild(inputEditTodo);
+    li.appendChild(inputEditQty);
     
     if (todo.completed) {
       li.className += 'complete';
