@@ -103,7 +103,8 @@
   function createTodoListItem(todo) {
      var qty = document.createElement('input');
      qty.className = 'qty';
-     qty.appendChild = document.createTextNode(todo.qty);
+     qty.type = 'text';
+     qty.appendChild(document.createTextNode(todo.qty));
      qty.addEventListener('dblclick', todoDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
