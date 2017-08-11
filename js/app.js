@@ -4,7 +4,7 @@
 
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
-  var newqty = document.getEle mentById('newqty');
+  var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
