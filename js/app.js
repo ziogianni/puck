@@ -165,7 +165,7 @@
 
   function addEventListeners() {
     newTodoDom.addEventListener('keypress', newTodoKeyPressHandler, false);
-    //newqty.addEventListener('keypress', newTodoKeyPressHandler, false);
+    newqty.addEventListener('keypress', newTodoKeyPressHandler, false);
   }
 
   addEventListeners();
