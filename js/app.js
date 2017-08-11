@@ -182,7 +182,7 @@
 
     return li;
   }
-
+ 
   function redrawTodosUI(todos) {
     var ul = document.getElementById('todo-list');
     ul.innerHTML = '';
