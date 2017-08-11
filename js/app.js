@@ -130,6 +130,7 @@
     inputEditTodo.id = 'input_' + todo._id;
     inputEditTodo.className = 'edit';
     inputEditTodo.value = todo.title;
+    inputEditTodo.qty = todo.qty;
     inputEditTodo.addEventListener('keypress', todoKeyPressed.bind(this, todo));
     inputEditTodo.addEventListener('blur', todoBlurred.bind(this, todo));
 
