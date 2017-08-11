@@ -104,7 +104,7 @@
      var qty = document.createElement('input');
      qty.className = 'qty';
      qty.type = 'text';
-     qty.value = document.createTextNode(todo.qty);
+     qty = document.createTextNode(todo.qty);
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
