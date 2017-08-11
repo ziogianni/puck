@@ -62,6 +62,19 @@
       db.put(todo);
     }
   }
+  
+  // The input box when editing a todo has blurred, we should save
+  // the new title or delete the todo if the title is empty
+  function qtyBlurred(todo, event) {
+    var trimmedText = event.target.value.trim();
+    if (!trimmedText) {
+      db.remove(todo);
+    } else {
+      todo.qty = trimmedText;
+      db.put(todo);
+    }
+  }
+
 
   // Initialise a sync with the remote server
   function sync() {
@@ -154,7 +167,7 @@
     inputEditQty.className = 'edit';
     inputEditQty.value = todo.qty;
     inputEditQty.addEventListener('keypress', qtyKeyPressed.bind(this, todo));
-    inputEditQty.addEventListener('blur', todoBlurred.bind(this, todo));
+    inputEditQty.addEventListener('blur', qtyBlurred.bind(this, todo));
     
     var li = document.createElement('li');
     li.id = 'li_' + todo._id;
