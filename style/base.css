@@ -86,7 +86,6 @@ body {
 #header {
   padding-top: 15px;
   border-radius: inherit;
-  float:left;
 }
 
 #header:before {
@@ -142,6 +141,10 @@ body {
   background: rgba(0, 0, 0, 0.02);
   z-index: 2;
   box-shadow: none;
+}
+
+#inpif {
+float:left;
 }
 
 #main {
