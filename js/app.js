@@ -87,6 +87,9 @@
     var inputEditTodo = document.getElementById('input_' + todo._id);
     div.className = 'editing';
     inputEditTodo.focus();
+    
+    var inputEditQty = document.getElementById('input_qty' + todo._id);
+    inputEditQty.focus();
   }
 
   // If they press enter while editing an entry, blur it to trigger save
@@ -95,6 +98,8 @@
     if (event.keyCode === ENTER_KEY) {
       var inputEditTodo = document.getElementById('input_' + todo._id);
       inputEditTodo.blur();
+      var inputEditQty = document.getElementById('input_qty' + todo._id);
+      inputEditQty.blur();
     }
   }
 
@@ -135,7 +140,7 @@
     inputEditTodo.addEventListener('blur', todoBlurred.bind(this, todo));
 
     var inputEditQty = document.createElement('input');
-    inputEditQty.id = 'input_' + todo._id;
+    inputEditQty.id = 'input_qty' + todo._id;
     inputEditQty.className = 'edit';
     inputEditQty.value = todo.qty;
     inputEditQty.addEventListener('keypress', todoKeyPressed.bind(this, todo));
