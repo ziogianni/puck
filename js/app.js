@@ -104,7 +104,7 @@
      var qty = document.createElement('input');
      qty.className = 'qty';
      qty.type = 'text';
-     qty.appendChild(document.createTextNode(todo.qty));
+     qty.value = todo.qty;
      qty.addEventListener('dblclick', todoDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
