@@ -87,8 +87,13 @@
     var inputEditTodo = document.getElementById('input_' + todo._id);
     div.className = 'editing';
     inputEditTodo.focus();
-    
+
+  }
+    // User has double clicked a todo, display an input so they can edit the title
+  function qtyDblClicked(todo) {
+    var div = document.getElementById('li_' + todo._id);
     var inputEditQty = document.getElementById('input_qty' + todo._id);
+    div.className = 'editing';
     inputEditQty.focus();
   }
 
@@ -98,6 +103,11 @@
     if (event.keyCode === ENTER_KEY) {
       var inputEditTodo = document.getElementById('input_' + todo._id);
       inputEditTodo.blur();
+    }
+  }
+  
+  function qtyKeyPressed(todo, event) {
+    if (event.keyCode === ENTER_KEY) {
       var inputEditQty = document.getElementById('input_qty' + todo._id);
       inputEditQty.blur();
     }
@@ -110,7 +120,7 @@
      qty.className = 'qty';
      qty.type = 'text';
      qty.value = todo.qty;
-     qty.addEventListener('dblclick', todoDblClicked.bind(this, todo));
+     qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
@@ -136,7 +146,7 @@
     inputEditTodo.id = 'input_' + todo._id;
     inputEditTodo.className = 'edit';
     inputEditTodo.value = todo.title;
-    inputEditTodo.addEventListener('keypress', todoKeyPressed.bind(this, todo));
+    inputEditTodo.addEventListener('keypress', qtyKeyPressed.bind(this, todo));
     inputEditTodo.addEventListener('blur', todoBlurred.bind(this, todo));
 
     var inputEditQty = document.createElement('input');
