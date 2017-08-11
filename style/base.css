@@ -186,14 +186,6 @@ label[for='toggle-all'] {
   list-style: none;
 }
 
-#qty {
-  padding: 16px 16px 16px 60px;
-  border: none;
-  background: rgba(0, 0, 0, 0.02);
-  z-index: 2;
-  box-shadow: none;
-}
-
 #todo-list li {
   position: relative;
   font-size: 24px;
@@ -268,6 +260,14 @@ label[for='toggle-all'] {
 #todo-list li.completed label {
   color: #a9a9a9;
   text-decoration: line-through;
+}
+
+#todo-list li .qty {
+  padding: 16px 16px 16px 60px;
+  border: none;
+  background: rgba(0, 0, 0, 0.02);
+  z-index: 2;
+  box-shadow: none;
 }
 
 #todo-list li .destroy {
