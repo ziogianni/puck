@@ -101,9 +101,10 @@
   // Given an object representing a todo, this will create a list item
   // to display it.
   function createTodoListItem(todo) {
-    var qty = document.createElement('label');
-    qty.appendChild(document.createTextNode(todo.qty));
-    qty.addEventListener('dblclick', todoDblClicked.bind(this, todo));
+     var qty = document.createElement('input');
+     qty.className = 'qty';
+     qty.type = 'text';
+     qty.value = document.createTextNode(todo.qty);
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
