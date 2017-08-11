@@ -103,8 +103,8 @@
   function createTodoListItem(todo) {
      var qty = document.createElement('input');
      qty.className = 'qty';
-     qty.type = 'text';
      qty.appendChild = document.createTextNode(todo.qty);
+     qty.addEventListener('dblclick', todoDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
@@ -132,13 +132,6 @@
     inputEditTodo.value = todo.title;
     inputEditTodo.addEventListener('keypress', todoKeyPressed.bind(this, todo));
     inputEditTodo.addEventListener('blur', todoBlurred.bind(this, todo));
-    
-    var inputEditQty = document.createElement('input');
-    inputEditQty.id = 'input_qty' + todo._id;
-    inputEditQty.className = 'edit';
-    inputEditQty.value = todo.qty;
-    inputEditQty.addEventListener('keypress', todoKeyPressed.bind(this, todo));
-    inputEditQty.addEventListener('blur', todoBlurred.bind(this, todo));
 
     var li = document.createElement('li');
     li.id = 'li_' + todo._id;
