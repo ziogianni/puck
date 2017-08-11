@@ -265,10 +265,9 @@ label[for='toggle-all'] {
 #todo-list li .qty {
   position: absolute;
   top: 0;
-  right: 40px;
+  right: 100px;
   bottom: 0;
   
-  margin: auto 0;
   font-size: 22px;
   color: #a88a8a;
   
