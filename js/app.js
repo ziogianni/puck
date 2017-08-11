@@ -4,7 +4,7 @@
 
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
-  var newqty = document.getElementById('newqty');
+  var newqty = document.getEle mentById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
@@ -104,7 +104,7 @@
      var qty = document.createElement('input');
      qty.className = 'qty';
      qty.type = 'text';
-     qty = document.createTextNode(todo.title);
+     qty.appendChild = document.createTextNode(todo.qty);
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
