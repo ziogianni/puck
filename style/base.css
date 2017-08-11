@@ -25,7 +25,7 @@ body {
   line-height: 1.4em;
   background: #eaeaea url('bg.png');
   color: #4d4d4d;
-  width: 550px;
+  width: 750px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -143,12 +143,7 @@ body {
   box-shadow: none;
 }
 
-#inpif {
-float:left;
-}
-
 #main {
-  clear:left;
   position: relative;
   z-index: 2;
   border-top: 1px dotted #adadad;
