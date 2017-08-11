@@ -164,9 +164,9 @@
 
   function newTodoKeyPressHandler( event ) {
     if (event.keyCode === ENTER_KEY) {
-      addTodo(newTodoDom.value,newqty);
+      addTodo(newTodoDom.value,newqty.value);
       newTodoDom.value = '';
-      newqty = 0;
+      newqty.value = '';
     }
   }
 
