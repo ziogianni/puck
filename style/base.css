@@ -263,8 +263,14 @@ label[for='toggle-all'] {
 }
 
 #todo-list li .qty {
-  float:right;
-  padding-right: 32px;
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  
+  margin: auto 0;
+  font-size: 22px;
+  color: #a88a8a;
   
   border: none;
   background: rgba(0, 0, 0, 0.02);
