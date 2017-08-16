@@ -1,7 +1,7 @@
 (function() {
  
   'use strict';
-
+ 
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
   var newqty = document.getElementById('newqty');
