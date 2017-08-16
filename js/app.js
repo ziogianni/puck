@@ -76,7 +76,7 @@ function puckInteract(todo){
        qty: todo.qty
       });
       //db.put(todo);
-}
+});
   // User pressed the delete button for a todo, delete it
   function deleteButtonPressed(todo) {
     db.remove(todo);
