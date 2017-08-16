@@ -54,8 +54,9 @@ function puckInteract(){
   Puck.write('LED1.set();\n');
   }
   function getFeedback() { 
-    Puck.eval("BTN.read()",function(x) { if (x == true) Puck.write('LED1.reset();\n'); 
-    setTimeout(function() {
+    Puck.eval("BTN.read()",function(x) { if (x == true) {qty.value = qty.value - 1; Puck.write('LED1.reset();\n'); }
+    
+ setTimeout(function() {
           getFeedback();
         }, 250);})
     }
