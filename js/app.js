@@ -54,7 +54,7 @@ function puckInteract(){
   Puck.write('LED1.set();\n');
   }
   function getFeedback() {
-   setWatch(function() {
+   puck.setWatch(function() {
   Puck.write('LED1.reset();\n');
 }, BTN, {edge:"rising", debounce:50, repeat:true});
     //Puck.eval("BTN.read()",function(x) { if (x == true) Puck.write('LED1.reset();\n'); }) 
