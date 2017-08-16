@@ -48,13 +48,14 @@
     db.put(todo);
     if (event.target.checked == true) {
       puckInteract(todo);
-      getFeedback(todo);
       } 
   }
 function puckInteract(todo){
   decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
- decreasedQty = decreasedQty.value;
+  decreasedQty = decreasedQty.value;
+  
+  getFeedback(todo);
   }
  
   function getFeedback(todo) { 
