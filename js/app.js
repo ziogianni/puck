@@ -73,6 +73,7 @@ function puckInteract(todo){
       todo.qty = trimmedQty.toString();
       db.get(todo._id).then(function(doc) {
        return db.put({
+       _rev: doc._rev  
        qty: todo.qty
       });
       //db.put(todo);
