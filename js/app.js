@@ -7,6 +7,7 @@
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
 
+  var qty = document.createElement('input');
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
   var db = new PouchDB('couchdb');
@@ -143,7 +144,6 @@ function puckInteract(){
   // Given an object representing a todo, this will create a list item
   // to display it.
   function createTodoListItem(todo) {
-     var qty = document.createElement('input');
      qty.className = 'qty';
      qty.type = 'text';
      qty.value = todo.qty;
