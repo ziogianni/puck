@@ -54,7 +54,7 @@ function puckInteract(){
 
   Puck.write('LED1.set();\n');
   }
-  function getFeedback() { 
+  function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      var inputEditQty = document.getElementById('input_qty' + todo._id); 
      inputEditQty.value = inputEditQty.value - 1;
