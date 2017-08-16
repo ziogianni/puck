@@ -54,7 +54,10 @@ function puckInteract(){
   Puck.write('LED1.set();\n');
   }
   function getFeedback() {
-    Puck.eval("BTN.read()",function(x) { if (x == true) Puck.write('LED1.reset();\n'); }) 
+   setWatch(function() {
+  Puck.write('LED1.reset();\n');
+}, BTN, {edge:"rising", debounce:50, repeat:true});
+    //Puck.eval("BTN.read()",function(x) { if (x == true) Puck.write('LED1.reset();\n'); }) 
     }
   // User pressed the delete button for a todo, delete it
   function deleteButtonPressed(todo) {
