@@ -59,7 +59,7 @@ function puckInteract(todo){
   function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreasedQty.value = decreaseQty.value - 1;
-     decreaseQty(todo, decreasedQty)
+     decreaseQty(todo, decreasedQty.value)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
@@ -68,7 +68,7 @@ function puckInteract(todo){
     }
  
   function decreaseQty(todo, decreasedQty) {
-    var trimmedText = decreasedQty.value
+    var trimmedText = decreasedQty
     if (!trimmedText) {
       db.remove(todo);
     } else {
