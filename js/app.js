@@ -52,7 +52,7 @@
       } 
   }
 function puckInteract(todo_deact,todo){
-  todo_deact = todo;
+  todo_deact.value = todo;
   Puck.write('LED1.set();\n');
   }
   function getFeedback() { 
