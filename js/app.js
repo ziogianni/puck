@@ -6,7 +6,7 @@
   var newTodoDom = document.getElementById('new-todo');
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
-  var decreaseQty;
+  var decreasedQty;
 
   
   // EDITING STARTS HERE (you dont need to edit anything above this line)
@@ -52,20 +52,30 @@
       } 
   }
 function puckInteract(todo){
-  decreaseQty = document.getElementById('input_qty' + todo._id); 
+  decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   }
  
   function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
-     decreaseQty.value = decreaseQty.value - 1;
-     qtyBlurred(todo, decreaseQty)
+     decreasedQty.value = decreaseQty.value - 1;
+     decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
           getFeedback(todo);
         }, 250);})
     }
+ 
+  function decreaseQty(todo, decreasedQty) {
+    var trimmedText = decreasedQty.value
+    if (!trimmedText) {
+      db.remove(todo);
+    } else {
+      todo.qty = trimmedText;
+      db.put(todo);
+    }
+}
   // User pressed the delete button for a todo, delete it
   function deleteButtonPressed(todo) {
     db.remove(todo);
