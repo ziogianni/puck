@@ -7,7 +7,7 @@
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
 
-  var qty = document.createElement('input');
+  
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
   var db = new PouchDB('couchdb');
@@ -47,7 +47,7 @@
     db.put(todo);
     if (event.target.checked == true) {
       puckInteract();
-      getFeedback();
+      getFeedback(todo);
       } 
   }
 function puckInteract(){
@@ -55,7 +55,10 @@ function puckInteract(){
   Puck.write('LED1.set();\n');
   }
   function getFeedback() { 
-    Puck.eval("BTN.read()",function(x) { if (x == true) {qty.value = qty.value - 1; Puck.write('LED1.reset();\n'); }
+    Puck.eval("BTN.read()",function(x) { if (x == true) {
+     var inputEditQty = document.getElementById('input_qty' + todo._id); 
+     inputEditQty.value = inputEditQty.value - 1;
+     Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
           getFeedback();
@@ -117,7 +120,7 @@ function puckInteract(){
     inputEditTodo.focus();
 
   }
-    // User has double clicked a todo, display an input so they can edit the title
+    // User has double clicked a todo, display an input so they can edit the qty
   function qtyDblClicked(todo) {
     var div = document.getElementById('li_' + todo._id);
     var inputEditQty = document.getElementById('input_qty' + todo._id);
@@ -144,10 +147,11 @@ function puckInteract(){
   // Given an object representing a todo, this will create a list item
   // to display it.
   function createTodoListItem(todo) {
-     qty.className = 'qty';
-     qty.type = 'text';
-     qty.value = todo.qty;
-     qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
+   var qty = document.createElement('input');
+   qty.className = 'qty';
+   qty.type = 'text';
+   qty.value = todo.qty;
+   qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
