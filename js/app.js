@@ -46,7 +46,7 @@
     db.put(todo);
     if (event.target.checked == true) {
       puckInteract();
-      checkbok.addEventListener("click", function() { getFeedback(); });
+      getFeedback();
       }
   }
 function puckInteract(){
