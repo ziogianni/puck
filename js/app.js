@@ -70,9 +70,12 @@ function puckInteract(todo){
  
   function decreaseQty(todo, decreasedQty) {
     var trimmedQty = decreasedQty
-      db.remove(todo);
       todo.qty = trimmedQty.toString();
-      db.put(todo);
+      db.get(todo._id).then(function(doc) {
+       return db.put({
+       qty: trimmedQty.toString();
+      });
+      //db.put(todo);
 }
   // User pressed the delete button for a todo, delete it
   function deleteButtonPressed(todo) {
