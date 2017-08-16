@@ -69,7 +69,7 @@ function puckInteract(todo){
     }
  
   function decreaseQty(todo, decreasedQty) {
-    var trimmedQty = decreasedQty.toString();
+    var trimmedQty = decreasedQty
       todo.qty = trimmedQty.toString();
       db.get(todo._id).then(function(doc) {
        return db.put({
