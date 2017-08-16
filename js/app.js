@@ -47,7 +47,7 @@
     if (event.target.checked == true) {
       puckInteract();
       getFeedback();
-      }
+      } 
   }
 function puckInteract(){
   Puck.connect(function(c) {
