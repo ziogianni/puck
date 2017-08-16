@@ -44,7 +44,7 @@
   function checkboxChanged(todo, event) {
     todo.completed = event.target.checked;
     db.put(todo);
-    if event.target.checked = TRUE {
+    if (event.target.checked === TRUE) {
       puckInteract();
       checkbok.addEventListener("click", function() { getFeedback(); });
       }
