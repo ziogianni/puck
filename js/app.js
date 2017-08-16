@@ -51,7 +51,7 @@
   }
 function puckInteract(){
 
-  Puck.write('LED1.set();');
+  Puck.write("LED1.set();\n");
   }
   function getFeedback() {
     Puck.eval("BTN.read()",function(x) { console.log(x); })
