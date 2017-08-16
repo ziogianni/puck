@@ -53,7 +53,7 @@
   }
 function puckInteract(todo){
   decreasedQty = document.getElementById('input_qty' + todo._id); 
-  decreasedQty = decreasedQty.value;
+  //decreasedQty = decreasedQty.value;
   Puck.write('LED1.set();\n');
   }
  
