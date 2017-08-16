@@ -55,10 +55,11 @@ function puckInteract(todo){
   decreaseQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   }
+ 
   function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreaseQty.value = decreaseQty.value - 1;
-     qtyBlurred.bind(this, todo)
+     qtyBlurred(this, todo)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
