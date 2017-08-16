@@ -6,7 +6,7 @@
   var newTodoDom = document.getElementById('new-todo');
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
-  var decreasedQty;
+  var decreasedQty = 0;
 
   
   // EDITING STARTS HERE (you dont need to edit anything above this line)
