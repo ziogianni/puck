@@ -53,13 +53,14 @@
   }
 function puckInteract(todo){
   decreasedQty = document.getElementById('input_qty' + todo._id); 
+  decreasedQty = decreasedQty.value;
   Puck.write('LED1.set();\n');
   }
  
   function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
-     decreasedQty.value = decreaseQty.value - 1;
-     decreaseQty(todo, decreasedQty.value)
+     decreasedQty = decreaseQty - 1;
+     decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
