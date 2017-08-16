@@ -50,6 +50,11 @@
       }
   }
 function puckInteract(){
+  Puck.connect(function(c) {
+        if (!c) {
+          alert("Couldn't connect!");
+          return;
+        }
   Puck.write('LED1.set();\n');
   }
   function getFeedback() {
