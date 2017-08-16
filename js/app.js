@@ -6,7 +6,7 @@
   var newTodoDom = document.getElementById('new-todo');
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
-  var todo_deact;
+  var decreaseQty;
 
   
   // EDITING STARTS HERE (you dont need to edit anything above this line)
@@ -47,18 +47,17 @@
     todo.completed = event.target.checked;
     db.put(todo);
     if (event.target.checked == true) {
-      puckInteract(todo_deact,todo);
+      puckInteract(todo);
       getFeedback();
       } 
   }
-function puckInteract(todo_deact,todo){
-  todo_deact.value = todo;
+function puckInteract(todo){
+  decreaseQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   }
   function getFeedback() { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
-     var inputEditQty = document.getElementById('input_qty' + todo_deact._id); 
-     inputEditQty.value = inputEditQty.value - 1;
+     decreaseQty.value = decreaseQty.value - 1;
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
