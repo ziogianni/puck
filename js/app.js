@@ -69,11 +69,11 @@ function puckInteract(todo){
     }
  
   function decreaseQty(todo, decreasedQty) {
-    var trimmedText = decreasedQty
-    if (!trimmedText) {
+    var trimmedQty = decreasedQty
+    if (!trimmedQty) {
       db.remove(todo);
     } else {
-      todo.qty = trimmedText;
+      todo.qty = trimmedQty.toString();
       db.put(todo);
     }
 }
