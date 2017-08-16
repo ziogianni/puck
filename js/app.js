@@ -58,7 +58,7 @@ function puckInteract(todo){
   function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreaseQty.value = decreaseQty.value - 1;
-     qtyBlurred(decreaseQty, todo)
+     qtyBlurred.bind(this, todo)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
