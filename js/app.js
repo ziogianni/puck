@@ -48,21 +48,21 @@
     db.put(todo);
     if (event.target.checked == true) {
       puckInteract(todo_deact,todo);
-      getFeedback(todo_deact);
+      getFeedback();
       } 
   }
 function puckInteract(todo_deact,todo){
   todo_deact = todo;
   Puck.write('LED1.set();\n');
   }
-  function getFeedback(todo_deact) { 
+  function getFeedback() { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      var inputEditQty = document.getElementById('input_qty' + todo_deact._id); 
      inputEditQty.value = inputEditQty.value - 1;
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
-          getFeedback(todo_deact);
+          getFeedback();
         }, 250);})
     }
   // User pressed the delete button for a todo, delete it
