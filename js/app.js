@@ -1,5 +1,5 @@
 (function() {
-  
+   
   'use strict';
  
   var ENTER_KEY = 13;
