@@ -7,7 +7,7 @@
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
   var decreasedQty = 0;
-
+    
   
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
