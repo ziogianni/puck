@@ -49,35 +49,35 @@
     db.put(todo);
     if (event.target.checked == true) {
       checked = event.target.checked;
-      puckInteract(todo);
+      puckInteract(todo,event);
       } else checked = false;
   }
-function puckInteract(todo){
+function puckInteract(todo,event){
   decreasedQty = 0;
   decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   decreasedQty = decreasedQty.value;
   
-  getFeedback(todo);
+  getFeedback(todo,event);
   }
  
-  function getFeedback(todo) { 
+  function getFeedback(todo,event) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreasedQty = decreasedQty - 1;
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n');
-     deactivateCheckbox (todo);
+     deactivateCheckbox (todo,event);
      return;}
     
   setTimeout(function() {
       if (checked == true)
-         getFeedback(todo);
+         getFeedback(todo,event);
          }, 250);})
      }
     
-    function deactivateCheckbox (todo) {//deactivate checkbox after btn pressing
+    function deactivateCheckbox (todo, event) {//deactivate checkbox after btn pressing
         event.target.checked = false;
-        todo.completed = event.target.checked;
+        todo.completed = false;
         db.put(todo);
  }
     
