@@ -65,7 +65,8 @@ function puckInteract(todo){
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreasedQty = decreasedQty - 1;
      decreaseQty(todo, decreasedQty)
-     Puck.write('LED1.reset();\n'); 
+     Puck.write('LED1.reset();\n');
+     deactivateCheckbox (todo);
      return;}
     
   setTimeout(function() {
@@ -73,7 +74,13 @@ function puckInteract(todo){
          getFeedback(todo);
          }, 250);})
      }
- 
+    
+    function deactivateCheckbox (todo) {//deactivate checkbox after btn pressing
+        event.target.checked = false;
+        todo.completed = event.target.checked;
+        db.put(todo);
+ }
+    
   function decreaseQty(todo, decreasedQty) {
     var trimmedQty = decreasedQty
       todo.qty = trimmedQty.toString();
