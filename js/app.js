@@ -7,6 +7,7 @@
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
   var decreasedQty = 0;
+  var checked = false;
     
   
   // EDITING STARTS HERE (you dont need to edit anything above this line)
@@ -47,26 +48,26 @@
     todo.completed = event.target.checked;
     db.put(todo);
     if (event.target.checked == true) {
-      puckInteract(todo,event);
-      } 
+      puckInteract(todo,event.target.checked);
+      } else checked = false;
   }
-function puckInteract(todo,event){
+function puckInteract(todo){
   decreasedQty = 0;
   decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   decreasedQty = decreasedQty.value;
   
-  getFeedback(todo,event);
+  getFeedback(todo);
   }
  
-  function getFeedback(todo,event) { 
+  function getFeedback(todo) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreasedQty = decreasedQty - 1;
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n'); }
     
-  setTimeout(function(event) {
-    if (event.target.checked == true)
+  setTimeout(function() {
+      if (checked == true)
          getFeedback(todo);
          }, 250);})
      }
