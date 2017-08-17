@@ -47,28 +47,30 @@
     todo.completed = event.target.checked;
     db.put(todo);
     if (event.target.checked == true) {
-      puckInteract(todo);
+      puckInteract(todo,event);
       } 
   }
-function puckInteract(todo){
+function puckInteract(todo,event){
   decreasedQty = 0;
   decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
   decreasedQty = decreasedQty.value;
   
-  getFeedback(todo);
+  getFeedback(todo,event);
   }
  
-  function getFeedback(todo) { 
+  function getFeedback(todo,event) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
      decreasedQty = decreasedQty - 1;
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n'); }
     
  setTimeout(function() {
+   if (event.target.checked == true) {
           getFeedback(todo);
         }, 250);})
     }
+              }
  
   function decreaseQty(todo, decreasedQty) {
     var trimmedQty = decreasedQty
