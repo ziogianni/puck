@@ -6,7 +6,7 @@
   var newTodoDom = document.getElementById('new-todo');
   var newqty = document.getElementById('newqty');
   var syncDom = document.getElementById('sync-wrapper');
-  var decreasedQty = 0;
+  //var decreasedQty = 0;
   var checked = false;
     
   
@@ -53,21 +53,19 @@
       } else checked = false;
   }
 function puckInteract(todo,event){
-  decreasedQty = 0;
-  decreasedQty = document.getElementById('input_qty' + todo._id); 
+  //decreasedQty = 0;
+  //decreasedQty = document.getElementById('input_qty' + todo._id); 
   Puck.write('LED1.set();\n');
-  decreasedQty = decreasedQty.value;
+  //decreasedQty = decreasedQty.value;
   
   getFeedback(todo,event);
   }
  
   function getFeedback(todo,event) { 
     Puck.eval("BTN.read()",function(x) { if (x == true) {
-     decreasedQty = decreasedQty - 1;
-     decreaseQty(todo, decreasedQty)
+     decreaseQty(todo)
      Puck.write('LED1.reset();\n');
-     todo.qty = decreasedQty;
-     //deactivateCheckbox (todo,event);
+     //todo.qty = decreasedQty;
      return;}
     
   setTimeout(function() {
@@ -80,7 +78,6 @@ function puckInteract(todo,event){
     var trimmedQty = decreasedQty;
       db.get(todo._id).then(function(doc) {
         doc.completed = false;  //disable checkbox
-        //doc.qty = trimmedQty.toString();
           doc.qty = String(doc.qty - 1);
        return db.put(doc);
           }).catch(function (err) {
