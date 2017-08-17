@@ -65,7 +65,7 @@ function puckInteract(todo,event){
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n'); }
     
-  setTimeout(function() {
+  setTimeout(function(event) {
     if (event.target.checked == true)
          getFeedback(todo);
          }, 250);})
