@@ -50,7 +50,6 @@
     if (event.target.checked == true) {
       checked = event.target.checked;
       puckInteract(todo);
-      checked = false;
       } else checked = false;
   }
 function puckInteract(todo){
