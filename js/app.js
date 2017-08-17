@@ -48,7 +48,8 @@
     todo.completed = event.target.checked;
     db.put(todo);
     if (event.target.checked == true) {
-      puckInteract(todo,event.target.checked);
+      checked = event.target.checked;
+      puckInteract(todo);
       } else checked = false;
   }
 function puckInteract(todo){
