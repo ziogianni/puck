@@ -69,7 +69,6 @@ function puckInteract(todo,event){
    if (event.target.checked == true) {
           getFeedback(todo);
         }, 250);})
-    }
               }
  
   function decreaseQty(todo, decreasedQty) {
