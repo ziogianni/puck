@@ -77,8 +77,9 @@ function puckInteract(todo,event){
     
     function deactivateCheckbox (todo, event) {//deactivate checkbox after btn pressing
         event.target.checked = false;
+        todo.completed = false;
         db.get(todo._id).then(function(doc) {
-            doc.completed = false;
+            doc.completed = todo.completed;
             return db.put(doc);
         });
  }
@@ -89,7 +90,6 @@ function puckInteract(todo,event){
       db.get(todo._id).then(function(doc) {
         doc.qty = todo.qty;
        return db.put(doc);
-      //db.put(todo);
 });
     }
   // User pressed the delete button for a todo, delete it
