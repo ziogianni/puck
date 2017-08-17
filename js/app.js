@@ -79,7 +79,7 @@ function puckInteract(todo,event){
         //event.target.checked = false;
         todo.completed = false;
         db.get(todo._id).then(function(doc) {
-            doc.completed = todo.completed;
+            //doc.completed = todo.completed;
             return db.put(doc);
         }).catch(function (err) {
             console.log(err);
