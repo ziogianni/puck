@@ -67,7 +67,7 @@ function puckInteract(todo,event){
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n');
      todo.qty = decreasedQty;
-     deactivateCheckbox (todo,event);
+     //deactivateCheckbox (todo,event);
      return;}
     
   setTimeout(function() {
@@ -90,8 +90,11 @@ function puckInteract(todo,event){
   function decreaseQty(todo, decreasedQty) {
     var trimmedQty = decreasedQty;
       db.get(todo._id).then(function(doc) {
+        doc.completed = false;  //disable checkbox
         doc.qty = trimmedQty.toString();
        return db.put(doc);
+          }).catch(function (err) {
+            console.log(err);
 });
     }
   // User pressed the delete button for a todo, delete it
