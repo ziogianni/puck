@@ -76,11 +76,10 @@ function puckInteract(todo,event){
      }
     
     function deactivateCheckbox (todo, event) {//deactivate checkbox after btn pressing
-        event.target.checked = false;
+        //event.target.checked = false;
         todo.completed = false;
         db.get(todo._id).then(function(doc) {
-            //doc.completed = todo.completed;
-            doc.qty = todo.qty;
+            doc.completed = todo.completed;
             return db.put(doc);
         });
  }
