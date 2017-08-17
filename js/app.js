@@ -66,6 +66,7 @@ function puckInteract(todo,event){
      decreasedQty = decreasedQty - 1;
      decreaseQty(todo, decreasedQty)
      Puck.write('LED1.reset();\n');
+     todo.qty = decreasedQty;
      deactivateCheckbox (todo,event);
      return;}
     
@@ -79,7 +80,7 @@ function puckInteract(todo,event){
         //event.target.checked = false;
         todo.completed = false;
         db.get(todo._id).then(function(doc) {
-            //doc.completed = todo.completed;
+            doc.completed = todo.completed;
             return db.put(doc);
         }).catch(function (err) {
             console.log(err);
@@ -87,10 +88,9 @@ function puckInteract(todo,event){
  }
     
   function decreaseQty(todo, decreasedQty) {
-    var trimmedQty = decreasedQty
-      todo.qty = trimmedQty.toString();
+    var trimmedQty = decreasedQty;
       db.get(todo._id).then(function(doc) {
-        doc.qty = todo.qty;
+        doc.qty = trimmedQty.toString();
        return db.put(doc);
 });
     }
