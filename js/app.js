@@ -75,7 +75,7 @@ function puckInteract(todo,event){
      }
     
   function decreaseQty(todo, decreasedQty) {
-    var trimmedQty = decreasedQty;
+    //var trimmedQty = decreasedQty;
       db.get(todo._id).then(function(doc) {
         doc.completed = false;  //disable checkbox
           doc.qty = String(doc.qty - 1);
