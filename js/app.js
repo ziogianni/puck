@@ -166,7 +166,7 @@ function puckInteract(todo,event){
    //qty.className = 'qty';
    //qty.type = 'text';
    //qty.value = todo.qty;
-    qty.appendChild( document.createTextNode(todo.title));
+    qty.appendChild( document.createTextNode(todo.qty));
     qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
