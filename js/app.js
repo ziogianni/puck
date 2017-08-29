@@ -162,11 +162,12 @@ function puckInteract(todo,event){
   // Given an object representing a todo, this will create a list item
   // to display it.
   function createTodoListItem(todo) {
-   var qty = document.createElement('input');
-   qty.className = 'qty';
-   qty.type = 'text';
-   qty.value = todo.qty;
-   qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
+   var qty = document.createElement('label');
+   //qty.className = 'qty';
+   //qty.type = 'text';
+   //qty.value = todo.qty;
+    qty.appendChild( document.createTextNode(todo.title));
+    qty.addEventListener('dblclick', qtyDblClicked.bind(this, todo));
     
     var checkbox = document.createElement('input');
     checkbox.className = 'toggle';
